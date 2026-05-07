@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F&B Vendors FAQ — Wonderfruit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4ECD8;
+    --cream-dark: #E8DCC4;
+    --forest: #1E2D1C;
+    --forest-mid: #2E4A2A;
+    --moss: #4A6741;
+    --amber: #C8783A;
+    --gold: #C9A84C;
+    --terracotta: #B85C38;
+    --text: #1A1A14;
+    --text-light: #4A4A3C;
+    --white: #FDFAF4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--forest);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 48px 28px 60px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(74,103,65,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 20% 80%, rgba(200,120,58,0.12) 0%, transparent 60%);
+  }
+
+  .hero-botanical {
+    position: absolute;
+    opacity: 0.07;
+    font-size: 280px;
+    line-height: 1;
+    top: -40px;
+    right: -60px;
+    pointer-events: none;
+    user-select: none;
+    filter: blur(1px);
+  }
+  .hero-botanical-2 {
+    position: absolute;
+    opacity: 0.05;
+    font-size: 200px;
+    line-height: 1;
+    bottom: -20px;
+    left: -50px;
+    pointer-events: none;
+    user-select: none;
+    transform: rotate(180deg);
+  }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-w {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 86px;
+    color: var(--white);
+    line-height: 0.9;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -2px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cream-dark);
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 38px;
+    color: var(--white);
+    font-weight: 300;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    color: rgba(244,236,216,0.6);
+    letter-spacing: 0.08em;
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── EVENT CARD ── */
+  .event-card {
+    background: var(--amber);
+    margin: 0;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .event-card::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+
+  .event-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .event-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .event-month {
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  .event-location {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .event-time-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .time-chip {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+
+  .time-chip-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .time-chip-val {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 40px 28px;
+    border-bottom: 1px solid rgba(30,45,28,0.1);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(200,120,58,0.25);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .body-text {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  /* ── VALUES PILLS ── */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .value-pill {
+    background: var(--forest);
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+
+  .value-pill .icon { font-size: 22px; display: block; margin-bottom: 6px; }
+
+  .value-pill-text {
+    font-size: 11px;
+    color: var(--cream);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  /* ── PROHIBITED LIST ── */
+  .prohibit-list { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+
+  .prohibit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 16px;
+    border-left: 3px solid var(--terracotta);
+  }
+
+  .prohibit-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .prohibit-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .prohibit-text strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  /* ── ALLOWED LIST ── */
+  .allowed-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+
+  .allowed-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(78,110,69,0.08);
+    border-radius: 12px;
+    padding: 14px;
+    border-left: 3px solid var(--moss);
+  }
+
+  .allowed-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  .allowed-text { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+  /* ── BOOTH GRID ── */
+  .booth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .booth-item {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .booth-item .icon { font-size: 26px; display: block; margin-bottom: 8px; }
+  .booth-item-title { font-size: 12px; font-weight: 500; color: var(--forest); margin-bottom: 3px; }
+  .booth-item-sub { font-size: 11px; color: var(--text-light); line-height: 1.4; }
+
+  /* ── HOURS VISUAL ── */
+  .hours-visual {
+    background: var(--forest);
+    border-radius: 18px;
+    padding: 24px 20px;
+    margin-top: 20px;
+  }
+
+  .hours-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hours-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .hours-icon { font-size: 20px; flex-shrink: 0; }
+
+  .hours-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(244,236,216,0.55);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .hours-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  /* ── PAYMENT VISUAL ── */
+  .payment-visual {
+    background: var(--forest-mid);
+    border-radius: 18px;
+    padding: 26px 20px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .payment-visual::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 40px solid rgba(255,255,255,0.04);
+    top: -80px;
+    right: -60px;
+  }
+
+  .rfid-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--forest);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .payment-icon { font-size: 52px; display: block; margin-bottom: 12px; }
+
+  .payment-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--white);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .payment-sub { font-size: 12px; color: rgba(244,236,216,0.65); line-height: 1.6; }
+
+  .payment-blocked {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .payment-chip {
+    background: rgba(184,92,56,0.25);
+    border: 1px solid rgba(184,92,56,0.4);
+    border-radius: 20px;
+    font-size: 11px;
+    color: rgba(244,236,216,0.8);
+    padding: 5px 12px;
+  }
+
+  /* ── WASTE GRID ── */
+  .waste-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .waste-item {
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  .waste-item.food { background: #3B5E2B; }
+  .waste-item.recycle { background: #2B4E5C; }
+  .waste-item.nonrecycle { background: #5C3B2B; }
+  .waste-item.containers { background: #4A3B5C; }
+
+  .waste-item .icon { font-size: 28px; display: block; margin-bottom: 8px; }
+
+  .waste-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  /* ── INFO CARDS ── */
+  .info-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 16px;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .info-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .info-card-icon { font-size: 26px; }
+
+  .info-card-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--forest);
+  }
+
+  .info-card-body { font-size: 13px; color: var(--text-light); line-height: 1.65; }
+
+  /* ── ACCORDION ── */
+  .accordion {
+    margin-top: 16px;
+    border: 1px solid var(--cream-dark);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .accordion-item { border-bottom: 1px solid var(--cream-dark); }
+  .accordion-item:last-child { border-bottom: none; }
+
+  .accordion-trigger {
+    width: 100%;
+    background: var(--white);
+    border: none;
+    padding: 16px 18px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--forest);
+    transition: background 0.2s;
+  }
+
+  .accordion-trigger:hover { background: var(--cream); }
+
+  .accordion-trigger.open { background: var(--cream); }
+
+  .accordion-arrow {
+    font-size: 16px;
+    transition: transform 0.25s;
+    color: var(--amber);
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .accordion-trigger.open .accordion-arrow { transform: rotate(90deg); }
+
+  .accordion-body {
+    display: none;
+    padding: 14px 18px 18px;
+    background: var(--cream);
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .accordion-body.open { display: block; }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    margin-top: 20px;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--amber), var(--moss));
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -21px;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--amber);
+  }
+
+  .timeline-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .timeline-text { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* ── NO-LOGO SECTION ── */
+  .nologobanner {
+    background: var(--forest);
+    border-radius: 18px;
+    padding: 26px 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .nologobanner .big-x {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 10px;
+    opacity: 0.6;
+  }
+
+  .nologobanner-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--white);
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .nologobanner-sub { font-size: 12px; color: rgba(244,236,216,0.6); line-height: 1.65; }
+
+  .instead-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+
+  .instead-item {
+    background: rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: rgba(244,236,216,0.85);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* ── CONTACT FOOTER ── */
+  .contact-footer {
+    background: var(--forest);
+    padding: 48px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-footer::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.04;
+    top: -40px;
+    left: -30px;
+  }
+
+  .contact-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .contact-tagline span { display: block; }
+
+  .contact-link {
+    display: block;
+    background: var(--amber);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 50px;
+    margin: 10px auto;
+    max-width: 260px;
+    transition: opacity 0.2s;
+  }
+
+  .contact-link:hover { opacity: 0.85; }
+
+  .contact-link.line {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.8);
+  }
+
+  .contact-fine {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    margin-top: 28px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── COST BADGE ── */
+  .cost-card {
+    background: var(--amber);
+    border-radius: 18px;
+    padding: 24px 20px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cost-card::after {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 40px solid rgba(255,255,255,0.08);
+    bottom: -60px;
+    right: -40px;
+  }
+
+  .cost-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+
+  .cost-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--white);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .cost-body { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.65; }
+
+  .cost-note {
+    margin-top: 14px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ── SCROLL ANIM ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(30,45,28,0.95);
+    backdrop-filter: blur(12px);
+    padding: 0 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .sticky-nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    display: inline-flex;
+    gap: 0;
+    padding: 12px 0;
+  }
+
+  .nav-link {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--cream);
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── CAMPING / WEATHER ── */
+  .dual-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <span class="hero-botanical">🌿</span>
+  <span class="hero-botanical-2">🌱</span>
+  <p class="hero-tag">The Fields at Siam Country Club · Chonburi</p>
+  <div class="hero-w">W</div>
+  <p class="hero-title">Wonderfruit</p>
+  <div class="hero-divider"></div>
+  <h1 class="hero-section-title">F&B Vendor<br>Guide</h1>
+  <p class="hero-sub">Everything you need to know · 2024 Edition</p>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#event" class="nav-link">Event</a>
+    <a href="#values" class="nav-link">Values</a>
+    <a href="#rules" class="nav-link">Rules</a>
+    <a href="#costs" class="nav-link">Costs</a>
+    <a href="#booth" class="nav-link">Your Booth</a>
+    <a href="#hours" class="nav-link">Hours</a>
+    <a href="#payment" class="nav-link">Payment</a>
+    <a href="#logistics" class="nav-link">Logistics</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<!-- EVENT DETAILS -->
+<div id="event" class="event-card reveal">
+  <p class="event-label">Event Dates</p>
+  <div class="event-date">12 – 16</div>
+  <div class="event-month">December 2024</div>
+  <p class="event-location">📍 The Fields at Siam Country Club, Chonburi, Thailand</p>
+  <div class="event-time-grid">
+    <div class="time-chip">
+      <span class="time-chip-label">Opens</span>
+      <span class="time-chip-val">Thu 4:00 PM</span>
+    </div>
+    <div class="time-chip">
+      <span class="time-chip-label">Closes</span>
+      <span class="time-chip-val">Mon 12:00 PM</span>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section class="section reveal" id="values">
+  <p class="section-eyebrow">Philosophy</p>
+  <h2 class="section-title">What we look <em>for</em></h2>
+  <p class="body-text">At Wonderfruit, food transcends sustenance — it embodies ingredients, impact, culture and ecology. We seek vendors who share our deep appreciation for the stories behind every flavour in The Fields.</p>
+  <div class="values-grid">
+    <div class="value-pill">
+      <span class="icon">♻️</span>
+      <p class="value-pill-text">Sustainable practices</p>
+    </div>
+    <div class="value-pill">
+      <span class="icon">🌾</span>
+      <p class="value-pill-text">Locally sourced ingredients</p>
+    </div>
+    <div class="value-pill">
+      <span class="icon">🍃</span>
+      <p class="value-pill-text">Homemade & craft food</p>
+    </div>
+    <div class="value-pill">
+      <span class="icon">🥦</span>
+      <p class="value-pill-text">Vegetarian & vegan friendly</p>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDING -->
+<section class="section reveal">
+  <p class="section-eyebrow">Branding</p>
+  <h2 class="section-title">The no-logo <em>rule</em></h2>
+  <div class="nologobanner">
+    <div class="big-x">🚫</div>
+    <p class="nologobanner-title">No logos. Anywhere.</p>
+    <p class="nologobanner-sub">Logos are prohibited on menus, uniforms, tableware, signage, trucks, and all promotional materials — including social media and press unless pre-approved by Wonderfruit Marketing.</p>
+    <div class="instead-list">
+      <div class="instead-item">🎨 <span>Vibrant hand-painted banners & murals</span></div>
+      <div class="instead-item">🌿 <span>Artistic installations from sustainable materials</span></div>
+      <div class="instead-item">💬 <span>Staff as storytellers & brand ambassadors</span></div>
+      <div class="instead-item">📋 <span>Informative posters on sourcing & sustainability</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROHIBITED ITEMS -->
+<section class="section reveal" id="rules">
+  <p class="section-eyebrow">Prohibited</p>
+  <h2 class="section-title">What you <em>cannot</em> sell</h2>
+  <p class="body-text">All menu items require prior approval. Our team will review your submission and flag any unsuitable products before the event.</p>
+
+  <div class="prohibit-list">
+    <div class="prohibit-item">
+      <span class="prohibit-icon">🥥</span>
+      <div class="prohibit-text">
+        <strong>Beverages</strong>
+        Fresh coconuts, packaged coconut water, alcohol, and any beverage sold at Wonderfruit bars.
+      </div>
+    </div>
+    <div class="prohibit-item">
+      <span class="prohibit-icon">🚨</span>
+      <div class="prohibit-text">
+        <strong>Controlled substances</strong>
+        Narcotics, cannabis, kratom, or any derivatives. Violations result in immediate booth closure and a fine.
+      </div>
+    </div>
+    <div class="prohibit-item">
+      <span class="prohibit-icon">🧴</span>
+      <div class="prohibit-text">
+        <strong>Plastic — all forms</strong>
+        Plastic straws, plastic-wrapped items, single-use cups, and bio-plastics are all banned.
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title" style="font-size:20px; margin-top:28px; margin-bottom:12px;">✅ What <em>is</em> allowed</p>
+  <div class="allowed-list">
+    <div class="allowed-item">
+      <span class="allowed-icon">🍃</span>
+      <span class="allowed-text">Compostable containers from <strong>paper, wood, cardboard or leaves</strong></span>
+    </div>
+    <div class="allowed-item">
+      <span class="allowed-icon">♻️</span>
+      <span class="allowed-text">Reusable or refillable cups — <strong>attendees bring their own</strong></span>
+    </div>
+    <div class="allowed-item">
+      <span class="allowed-icon">🥄</span>
+      <span class="allowed-text">Compostable wooden or paper <strong>cutlery</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- COSTS -->
+<section class="section reveal" id="costs">
+  <p class="section-eyebrow">Fees</p>
+  <h2 class="section-title">What does it <em>cost?</em></h2>
+  <div class="cost-card">
+    <span class="cost-icon">💰</span>
+    <p class="cost-title">Rental Fee + Revenue Share</p>
+    <p class="cost-body">The fee varies based on booth location and includes a percentage of all sales made during the festival.</p>
+    <div class="cost-note">🔔 Selected applicants will receive full pricing details after selection.</div>
+  </div>
+</section>
+
+<!-- YOUR BOOTH -->
+<section class="section reveal" id="booth">
+  <p class="section-eyebrow">Setup</p>
+  <h2 class="section-title">Your booth, <em>provided</em></h2>
+  <p class="body-text">Wonderfruit provides a covered booth with everything you need to operate. Here's what's included:</p>
+  <div class="booth-grid">
+    <div class="booth-item">
+      <span class="icon">🏕️</span>
+      <p class="booth-item-title">Covered Booth</p>
+      <p class="booth-item-sub">3.6 × 2.4 m with front counter</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">🪧</span>
+      <p class="booth-item-title">Signage</p>
+      <p class="booth-item-sub">Up to 20 characters</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">⚡</span>
+      <p class="booth-item-title">Power</p>
+      <p class="booth-item-sub">16AMP single-phase, upgrade available</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">💡</span>
+      <p class="booth-item-title">Light Bulb</p>
+      <p class="booth-item-sub">You install your own lighting</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">🧊</span>
+      <p class="booth-item-title">Ice Box</p>
+      <p class="booth-item-sub">300L capacity</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">📱</span>
+      <p class="booth-item-title">POS Device</p>
+      <p class="booth-item-sub">With charger included</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">🎫</span>
+      <p class="booth-item-title">Staff Passes</p>
+      <p class="booth-item-sub">Quantity varies per vendor</p>
+    </div>
+    <div class="booth-item">
+      <span class="icon">🚗</span>
+      <p class="booth-item-title">Vehicle Passes</p>
+      <p class="booth-item-sub">2 passes for vendor parking</p>
+    </div>
+  </div>
+
+  <div class="accordion" style="margin-top:20px;">
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Can I use my own food truck? <span class="accordion-arrow">›</span>
+      </button>
+      <div class="accordion-body">
+        Yes — food trucks and trailers are permitted, but spots are limited. All logos must be removed from the vehicle to comply with branding guidelines.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Can I share a booth? <span class="accordion-arrow">›</span>
+      </button>
+      <div class="accordion-body">
+        No. Sharing booths is strictly prohibited. Each vendor receives their own dedicated space for the full duration of the event.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="section reveal" id="hours">
+  <p class="section-eyebrow">Operations</p>
+  <h2 class="section-title">Minimum <em>hours</em></h2>
+  <p class="body-text">All vendors must meet minimum operating requirements to ensure the best attendee experience.</p>
+  <div class="hours-visual">
+    <div class="hours-row">
+      <span class="hours-icon">⏱️</span>
+      <div>
+        <span class="hours-label">Minimum per day</span>
+        <span class="hours-val">12 hours</span>
+      </div>
+    </div>
+    <div class="hours-row">
+      <span class="hours-icon">⭐</span>
+      <div>
+        <span class="hours-label">Prime footfall area bonus</span>
+        <span class="hours-val">Open until Mon noon</span>
+      </div>
+    </div>
+    <div class="hours-row">
+      <span class="hours-icon">🧘</span>
+      <div>
+        <span class="hours-label">Wellness zone vendors</span>
+        <span class="hours-val">Open from 8:00 AM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="section reveal" id="payment">
+  <p class="section-eyebrow">Transactions</p>
+  <h2 class="section-title">Cashless <em>only</em></h2>
+  <div class="payment-visual">
+    <span class="rfid-badge">RFID Wristband System</span>
+    <span class="payment-icon">📟</span>
+    <p class="payment-title">POS only</p>
+    <p class="payment-sub">All payments are processed exclusively through the Wonderfruit RFID wristband system using the POS device provided to you.</p>
+    <p class="payment-sub" style="margin-top:10px; font-size: 11px; color: rgba(244,236,216,0.45);">The following are strictly prohibited:</p>
+    <div class="payment-blocked">
+      <span class="payment-chip">💵 Cash</span>
+      <span class="payment-chip">💳 Card</span>
+      <span class="payment-chip">📲 Transfer</span>
+      <span class="payment-chip">Any other method</span>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="section reveal">
+  <p class="section-eyebrow">Sustainability</p>
+  <h2 class="section-title">Waste <em>sorting</em></h2>
+  <p class="body-text">Each vendor receives 4 designated bins. Proper separation is mandatory as part of Wonderfruit's environmental commitment.</p>
+  <div class="waste-grid">
+    <div class="waste-item food">
+      <span class="icon">🍌</span>
+      <p class="waste-label">Food Waste</p>
+    </div>
+    <div class="waste-item recycle">
+      <span class="icon">♻️</span>
+      <p class="waste-label">Recyclables</p>
+    </div>
+    <div class="waste-item nonrecycle">
+      <span class="icon">🗑️</span>
+      <p class="waste-label">Non-Recyclables</p>
+    </div>
+    <div class="waste-item containers">
+      <span class="icon">🫙</span>
+      <p class="waste-label">Food Containers</p>
+    </div>
+  </div>
+</section>
+
+<!-- RFID WRISTBANDS -->
+<section class="section reveal">
+  <p class="section-eyebrow">Access</p>
+  <h2 class="section-title">RFID <em>wristbands</em></h2>
+  <div class="info-card">
+    <div class="info-card-head">
+      <span class="info-card-icon">⌚</span>
+      <p class="info-card-title">Staff Wristbands</p>
+    </div>
+    <p class="info-card-body">Each vendor receives a set number of RFID wristbands for staff. Each band is linked to an individual and cannot be exchanged or resold. Violations may result in fines equal to the gate ticket price.</p>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section class="section reveal" id="logistics">
+  <p class="section-eyebrow">Restocking</p>
+  <h2 class="section-title">Getting more <em>stock</em></h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">Water & Ice</p>
+      <p class="timeline-text">Must be purchased exclusively from Wonderfruit and will be delivered directly to your booth.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">Car Service</p>
+      <p class="timeline-text">Wonderfruit runs scheduled transfers from Vendor HQ to your booth at fixed times each day.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">Drop & Go Pass</p>
+      <p class="timeline-text">For larger items, vendors can request a pass allowing brief vehicle access to deliver directly to the site.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">Direct Delivery (New)</p>
+      <p class="timeline-text">This year Wonderfruit is exploring allowing a selected supplier to deliver directly to The Fields. More details to follow.</p>
+    </div>
+  </div>
+
+  <p class="section-title" style="font-size:22px; margin-top:32px; margin-bottom:4px;">Accommodation &amp; <em>weather</em></p>
+  <div class="dual-card">
+    <div class="info-card">
+      <div class="info-card-head">
+        <span class="info-card-icon">⛺</span>
+        <p class="info-card-title">Where to stay</p>
+      </div>
+      <p class="info-card-body">Camping at your booth is prohibited. General camping is available at <strong>฿1,000 per person</strong>. Nearby hotels are recommended — book early as prices rise closer to the event.</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-head">
+        <span class="info-card-icon">🌧️</span>
+        <p class="info-card-title">Rain or shine</p>
+      </div>
+      <p class="info-card-body">Wonderfruit proceeds regardless of weather. The event is only postponed if conditions pose a genuine danger to attendees.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTION TIMELINE -->
+<section class="section reveal">
+  <p class="section-eyebrow">Application</p>
+  <h2 class="section-title">The selection <em>process</em></h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">Submit Application</p>
+      <p class="timeline-text">Send your menu and product list for review. Our team will flag any unsuitable items.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">Review Period</p>
+      <p class="timeline-text">We may contact you for additional information or clarification during this period.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-label">End of September</p>
+      <p class="timeline-text">All applicants — selected or not — will be notified via email by end of September.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-footer" id="contact">
+  <p class="contact-tagline">
+    <span>Live.</span>
+    <span>Love.</span>
+    <span>Wonder.</span>
+  </p>
+  <p style="font-size:13px; color:rgba(255,255,255,0.5); margin-bottom: 24px; line-height: 1.6;">Have more questions? Our team is here to help.</p>
+  <a class="contact-link" href="mailto:eat@wonderfruit.co">✉️ eat@wonderfruit.co</a>
+  <a class="contact-link line" href="https://line.me/ti/p/@WonderfruitEats">💬 Line @WonderfruitEats</a>
+  <p class="contact-fine">www.wonderfruit.co · F&B Vendor FAQ 2024</p>
+</section>
+
+<script>
+  // Accordion
+  function toggleAccordion(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-trigger').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      body.classList.add('open');
+    }
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Active nav
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => navObserver.observe(s));
+</script>
+</body>
+</html>
